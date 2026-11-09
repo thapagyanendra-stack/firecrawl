@@ -8,7 +8,7 @@ import {
 import { HttpClient } from "../utils/httpClient";
 import { ALEXANDRIA_FEEDBACK_MAX_TOKENS } from "../utils/feedbackTokens";
 import {
-  normalizeAxiosError,
+  normalizeHttpError,
   throwForBadResponse,
 } from "../utils/errorHandler";
 
@@ -33,7 +33,7 @@ export async function feedback(
     }
     return res.data;
   } catch (err: any) {
-    if (err?.isAxiosError) return normalizeAxiosError(err, "feedback");
+    if (err?.isHttpError) return normalizeHttpError(err, "feedback");
     throw err;
   }
 }
@@ -56,7 +56,7 @@ export async function searchFeedback(
     }
     return res.data;
   } catch (err: any) {
-    if (err?.isAxiosError) return normalizeAxiosError(err, "searchFeedback");
+    if (err?.isHttpError) return normalizeHttpError(err, "searchFeedback");
     throw err;
   }
 }
