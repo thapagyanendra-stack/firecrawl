@@ -300,6 +300,7 @@ export async function executeSearch(
             usOnly,
             limit,
             queries: wantsTools ? [query] : undefined,
+            rankQuery: query,
             urls:
               options.domainTools === false
                 ? []
